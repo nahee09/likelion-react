@@ -1,11 +1,12 @@
-import LogIn from './pages/LogIn.js';
-import Browse from './pages/Browse.js';
-import Home from './pages/Home.js';
-// import { likeLionMembers } from './data/likeLionMembers.js';
+import LogIn from "./pages/LogIn.js";
+import Browse from "./pages/Browse.js";
+import Home from "./pages/Home.js";
+import { likeLionMembers } from "./data/likeLionMembers.js";
+import { LikeLionMembers } from "./pages/LikeLionMembers.js";
 
 class App extends React.Component {
   state = {
-    headline: 'React Application',
+    headline: "React Application",
     isPaid: true,
     isToggle: false,
     isLoading: !true,
@@ -14,7 +15,7 @@ class App extends React.Component {
   };
 
   originalHeadline = this.state.headline;
-  willUpdateHeadline = 'NEW HEADLINE! 😃';
+  willUpdateHeadline = "NEW HEADLINE! 😃";
 
   handleChangeHeadline = () => {
     if (this.state.isToggle) {
@@ -31,14 +32,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { 
-      isLoading, 
-      isToggle, 
-      isPaid, 
-      headline, 
-      hasError, 
-      likeLionMembers 
-    } = this.state;
+    const { isLoading, isToggle, isPaid, headline, hasError, likeLionMembers } = this.state;
 
     if (isLoading) {
       return <div role="alert">데이터 로딩 중...</div>;
@@ -48,13 +42,14 @@ class App extends React.Component {
       return <div role="alert">{hasError.message}</div>;
     }
 
-    return <Home />;
+    // return <Home />;
+    return <LikeLionMembers />;
 
     return (
       <div className="App">
         <h1>{headline}</h1>
         <button type="button" onClick={this.handleChangeHeadline}>
-          {isToggle ? '오리지널 헤드라인으로 변경' : '뉴 헤드라인으로 변경'}
+          {isToggle ? "오리지널 헤드라인으로 변경" : "뉴 헤드라인으로 변경"}
         </button>
 
         <LogIn />
