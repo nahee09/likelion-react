@@ -16,9 +16,6 @@ export function FormInput({
   const inputRef = useRef(null);
   const combineClassNames = `${classes.FormInput} ${
     vertical ? classes.FormInputVertical : ''
-<<<<<<< HEAD
-  } ${restProps.value.length > 0 ? classes.inputed : ''}`.trim();
-=======
   } ${inputRef.current?.value?.length > 0 ? classes.inputed : ''}`.trim();
 
   useEffect(() => {
@@ -39,7 +36,6 @@ export function FormInput({
         : removeInputedClassName();
     });
   });
->>>>>>> e3dabfc180839a4b015ec9f64f1c223a8d7cde27
 
   return (
     <div className={combineClassNames}>
